@@ -1,0 +1,27 @@
+/* TicketItem.css */
+
+li {
+  background-color: #fff; /* Color de fondo del ticket */
+  border: 1px solid #ccc; /* Borde alrededor del ticket */
+  border-radius: 5px; /* Bordes redondeados */
+  padding: 15px; /* Espaciado interno */
+  margin: 10px 0; /* Espaciado entre tickets */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidad */
+}
+
+h3 {
+  margin: 0; /* Elimina el margen por defecto */
+  color: #333; /* Color del título */
+}
+
+button {
+  background-color: #ff4d4d; /* Color de fondo del botón */
+  color: white; /* Color del texto del botón */
+  border: none; /* Sin borde */
+  padding: 5px 10px; /* Espaciado interno del botón */
+  cursor: pointer; /* Cambia el cursor al pasar el ratón */
+}
+
+button:hover {
+  background-color: #ff1a1a; /* Color de fondo al pasar el ratón */
+}
