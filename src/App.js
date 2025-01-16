@@ -1,31 +1,26 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
-import Customers from './Customers'
-import { BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom';
+import React, { useState } from 'react';
+import TicketForm from './components/TicketForm';
+import TicketList from './components/TicketList';
+import './App.css'; // Asegúrate de que tus estilos globales estén aquí
 
+const App = () => {
+  const [tickets, setTickets] = useState([]);
 
-class App extends Component {
-  render() {
-    console.log("Host URL"+process.env.PUBLIC_URL);
-    return (
+  const addTicket = (ticket) => {
+    setTickets([...tickets, ticket]);
+  };
 
-      <Router basename={process.env.PUBLIC_URL}>
-        <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Simple React App</h1>
-        </header>
-          <Switch>
-                <Route exact path= "/" render={() => (
-                  <Redirect to="/customerlist"/>
-                )}/>
-                 <Route exact path='/customerlist' component={Customers} />
-          </Switch>
-      </div>
-    </Router>
-    );
-  }
-}
+  const deleteTicket = (id) => {
+    setTickets(tickets.filter(ticket => ticket.id !== id));
+  };
+
+  return (
+    <div>
+      <h1>Sistema de Tickets</h1>
+      <TicketForm onAddTicket={addTicket} />
+      <TicketList tickets={tickets} onDeleteTicket={deleteTicket} />
+    </div>
+  );
+};
 
 export default App;
